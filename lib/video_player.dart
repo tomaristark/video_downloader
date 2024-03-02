@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:chewie/chewie.dart';
 import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
@@ -34,7 +36,7 @@ class _VideoPlayerViewState extends State<VideoPlayerView> {
         _videoPlayerController = VideoPlayerController.networkUrl(Uri.parse(widget.url));
         break;
       case DataSourceType.file:
-        
+        _videoPlayerController = VideoPlayerController.file(File(widget.url));
         break;
       case DataSourceType.contentUri:
         _videoPlayerController =
